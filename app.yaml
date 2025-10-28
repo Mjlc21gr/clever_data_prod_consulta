@@ -1,0 +1,17 @@
+runtime: python311
+
+env_variables:
+  ENVIRONMENT: production
+  PORT: 8080
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 10
+  target_cpu_utilization: 0.6
+
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+
+entrypoint: gunicorn --bind 0.0.0.0:$PORT --workers 4 --timeout 120 api_production:app
