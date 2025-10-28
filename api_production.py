@@ -214,7 +214,7 @@ def health_check():
         "service": "Consulta Placa API",
         "version": "1.0.0",
         "timestamp": datetime.now().isoformat(),
-        "uptime": "N/A",  # Se puede implementar si se necesita
+        "uptime": "N/A",
         "environment": os.getenv('ENVIRONMENT', 'development')
     }), 200
 
@@ -306,23 +306,10 @@ if __name__ == '__main__':
     host = os.getenv('HOST', '0.0.0.0')
     debug = os.getenv('DEBUG', 'False').lower() == 'true'
 
-    print("🚀 Iniciando API de Consulta de Placas...")
-    print(f"🌐 Host: {host}")
-    print(f"🔌 Puerto: {port}")
-    print(f"🐛 Debug: {debug}")
-    print()
-    print("📡 Endpoints disponibles:")
-    print(f"   POST http://{host}:{port}/api/v1/vehiculos/consultar - Consultar placa")
-    print(f"   GET  http://{host}:{port}/api/v1/health - Health check")
-    print(f"   GET  http://{host}:{port}/api/v1/info - Información de la API")
-    print(f"   GET  http://{host}:{port}/ - Endpoint raíz")
-    print()
-    print("📝 Ejemplo de uso con Postman:")
-    print(f"   URL: http://{host}:{port}/api/v1/vehiculos/consultar")
-    print("   Method: POST")
-    print("   Headers: Content-Type: application/json")
-    print('   Body: {"placa": "ABC123"}')
-    print()
+    print("Iniciando API de Consulta de Placas...")
+    print(f"Host: {host}")
+    print(f"Puerto: {port}")
+    print(f"Debug: {debug}")
 
     # Ejecutar la aplicación
     app.run(
