@@ -266,41 +266,6 @@ class ConsultaClienteAPI:
                     envioCorreoAsistencia
                     tipoLlamada
                 }}
-                cliente360 {{
-                    ... on Cliente360NaturalType {{
-                        id
-                        fechaCorte
-                        edad
-                        nombreCliente
-                        categoriaIngresos
-                        primaSalud
-                        primaVida
-                        primaHogar
-                        primaAutos
-                        totalPrimas
-                        primaProteccionCreditos
-                        productoSalud
-                        productoVida
-                        productoHogar
-                        productoAutos
-                        categoriaAcierta
-                        clv
-                        antiguedad
-                        categoriaAntiguedad
-                        cantidadProductos
-                        pk
-                    }}
-                    ... on Cliente360JuridicoType {{
-                        id
-                        nombreEmpresa
-                        antiguedadEmpresa
-                        clasificacionEmpresarial
-                        antiguedadBolivar
-                        cantidadProductosActivos
-                        ventasAnuales
-                        pk
-                    }}
-                }}
             }}
         }}
         '''
