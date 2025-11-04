@@ -20,8 +20,8 @@ class ConsultaClienteAPI:
         self.client_secret = "1htj7f9sm197dorel8lhoikl845ph4gpf6tts2gmpr2um6935stj"
 
         # Headers para GraphQL
-        self.user_key = "4ece6db2dff1462a99e3164eb53e7049"
-        self.api_key = "dNNSjqadzQaozr285maNg2w9q4hkZ5GT4YsiK60v"
+        self.user_key = "3673e3bd9d58483dad434d8cc059ed84"
+        self.api_key = "SruptfIF0Z7S4kAp5j5kLPXzhwlOdWbt9lImnu30"
 
     def obtener_token_acceso(self) -> Optional[str]:
         """
