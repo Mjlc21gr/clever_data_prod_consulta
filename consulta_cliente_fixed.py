@@ -13,7 +13,7 @@ class ConsultaClienteAPI:
     def __init__(self):
         # URLs de los endpoints (PRODUCCIÓN)
         self.auth_url = "https://api-conecta.segurosbolivar.com/prod/oauth2/token"
-        self.graphql_url = "https://api-conecta.segurosbolivar.com/prod/dataops/graphql/cliente"
+        self.graphql_url = "https://api-conecta.segurosbolivar.com/prod/api/dataops/graphql/cliente"
 
         # Credenciales para autenticación (PRODUCCIÓN)
         self.client_id = "16hs1d35ec86b9m6q7q13djhmi"
