@@ -1,17 +1,27 @@
-runtime: python311
+runtime: python39
 
+# Variables de entorno para producción
 env_variables:
-  ENVIRONMENT: production
-  PORT: 8080
+  ENVIRONMENT: "production"
+  DEBUG: "false"
 
+# Configuración de escalado automático
 automatic_scaling:
   min_instances: 1
   max_instances: 10
   target_cpu_utilization: 0.6
 
+# Configuración de recursos
 resources:
   cpu: 1
-  memory_gb: 0.5
+  memory_gb: 2
   disk_size_gb: 10
 
-entrypoint: gunicorn --bind 0.0.0.0:$PORT --workers 4 --timeout 120 api_production:app
+# Handlers
+handlers:
+- url: /.*
+  script: auto
+  secure: always
+
+# Tiempo de vida de la instancia
+instance_class: F2

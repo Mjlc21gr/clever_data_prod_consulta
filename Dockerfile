@@ -1,22 +1,31 @@
-FROM python:3.11-slim
+# Usar Python 3.9 slim como imagen base
+FROM python:3.9-slim
 
-WORKDIR /app
-
-COPY requirements.txt .
-
-RUN pip install --no-cache-dir -r requirements.txt
-
-# CAMBIO AQUÍ: usar consulta_cliente_fixed.py en lugar de consulta_cliente_fixed.py
-COPY consulta_cliente_fixed.py .
-COPY api_production.py .
-
-RUN adduser --disabled-password --gecos '' appuser && chown -R appuser /app
-USER appuser
-
-EXPOSE 8080
-
-# Configurar variables de entorno
+# Establecer variables de entorno
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "4", "--timeout", "120", "--access-logfile", "-", "--error-logfile", "-", "api_production:app"]
+# Crear directorio de trabajo
+WORKDIR /app
+
+# Instalar dependencias del sistema
+RUN apt-get update && apt-get install -y \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copiar archivos de dependencias
+COPY requirements.txt .
+
+# Instalar dependencias de Python
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar el código de la aplicación
+COPY consulta_cliente_fixed.py .
+COPY consulta_vehiculo.py .
+COPY api_unificada.py .
+
+# Exponer el puerto
+EXPOSE 8080
+
+# Comando para ejecutar la aplicación
+CMD ["python", "api_unificada.py"]

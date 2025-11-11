@@ -13,7 +13,7 @@ class ConsultaClienteAPI:
     def __init__(self):
         # URLs de los endpoints (PRODUCCIÓN)
         self.auth_url = "https://api-conecta.segurosbolivar.com/prod/oauth2/token"
-        self.graphql_url = "https://api-conecta.segurosbolivar.com/prod/dataops/graphql/cliente"
+        self.graphql_url = "https://api-conecta.segurosbolivar.com/prod/api/dataops/graphql/cliente"
 
         # Credenciales para autenticación (PRODUCCIÓN)
         self.client_id = "16hs1d35ec86b9m6q7q13djhmi"
@@ -360,7 +360,7 @@ if __name__ == "__main__":
     # Función principal para probar el script
     api = ConsultaClienteAPI()
     tipo_documento_ejemplo = "CC"
-    numero_documento_ejemplo = "12345678"  # Documento de ejemplo para testing
+    numero_documento_ejemplo = "1007409364"  # Documento de ejemplo para testing
 
     print(f"Consultando datos para el cliente: {tipo_documento_ejemplo} {numero_documento_ejemplo}")
     resultado = api.consultar_cliente_por_documento(tipo_documento_ejemplo, numero_documento_ejemplo)
