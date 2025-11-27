@@ -137,7 +137,7 @@ def validate_parametros_cliente(tipo_documento, numero_documento):
     numero_clean = numero_documento.strip()
 
     # Validar tipos de documento válidos
-    tipos_validos = ['CC', 'CE', 'NIT', 'PP', 'TI', 'RC', 'CD']
+    tipos_validos = ['CC', 'CE', 'NT', 'PP', 'TI', 'RC', 'CD']
     if tipo_clean not in tipos_validos:
         return False, f"Tipo de documento no válido. Tipos válidos: {', '.join(tipos_validos)}"
 
