@@ -324,20 +324,16 @@ class ConsultaClienteAPI:
 
     def estructurar_respuesta(self, graphql_data: Dict[str, Any]) -> Dict[str, Any]:
         """
-        Estructura la respuesta como lo hace el nodo Code en n8n.
+        Devuelve la respuesta directa de GraphQL sin estructuración adicional.
 
         Args:
             graphql_data (dict): Datos crudos de GraphQL
 
         Returns:
-            dict: Respuesta estructurada
+            dict: Respuesta directa de GraphQL
         """
-        return {
-            "success": True,
-            "timestamp": datetime.now().isoformat(),
-            "data": graphql_data.get("data"),
-            "errors": graphql_data.get("errors")
-        }
+        # Devolver la respuesta tal como viene de GraphQL
+        return graphql_data
 
 
 # Función auxiliar para uso en la API
